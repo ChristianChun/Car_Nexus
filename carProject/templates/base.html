@@ -1,0 +1,95 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+           CarNexus
+        {% endblock title %}
+    </title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                {% if user.is_authenticated %}
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        <img src="{% static 'logo.jpg' %}" height="50" alt="Logo"/>
+                        CarNexus
+                    </a>
+                {% else %}
+                    <a class="navbar-brand" href="{% url 'index' %}">
+                        <img src="{% static 'logo.jpg' %}" height="50" alt="Logo"/>
+                        CarNexus
+                    </a>
+                {% endif %}
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mr-auto">
+                        {% if user.is_authenticated %}
+                            {% for items in item_list %}
+                                {% if items.item != "Home" %}
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ items.link }}">{{ items.item }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <div class="d-flex align-items-center">
+                {% if user.is_authenticated %}
+                    <form class="form-inline my-2 my-lg-0 mr-3" action="{% url 'search' %}" method="get">
+                        <input class="form-control mr-sm-2" type="search" name="query" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                    <span class="nav-link text-white">Hello, {{ user.username }}</span>
+                    <form method="post" action="{% url 'logout' %}?next=/" class="form-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-primary nav-link">Logout</button>
+                    </form>
+                {% else %}
+                    <span class="text-white">Have an account? <a class="nav-link" href="{% url 'login' %}?next=/home">Login</a> </span>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <header class="header mb-4">
+        {% block banner %}
+            <div class="banner-container">
+                <img src="{% static 'banner.jpg' %}" class="img-fluid banner-image" alt="Banner"/>
+            </div>
+        {% endblock %}
+    </header>
+
+    <div class="container mt-4">
+        <!-- Main Content -->
+        <section id="main" class="mt-4">
+            {% block content %}
+               <h1> CarNexus </h1>
+            {% endblock content %}
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-4 text-center" id="footer">
+            2024 E-Commerce Car Django Python Project
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

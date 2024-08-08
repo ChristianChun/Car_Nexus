@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    CarsNexus
+{% endblock title %}
+
+{% block login_check %}
+{% endblock login_check %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <h1 class="mt-4">Welcome to Your Ultimate Car Marketplace</h1>
+            <p>
+                To register <a href="{% url 'register' %}" class="btn btn-primary">Click Here</a>
+            </p>
+            <p>
+                To login <a href="{% url 'login' %}?next=/home" class="btn btn-secondary">Click Here</a>
+            </p>
+        </div>
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <img src="{% static 'welcome.jpg' %}" alt="Welcome Car Image" class="img-fluid">
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <h2 class="text-center">Why Choose CarsNexus?</h2>
+            <p class="text-center">Find your perfect car from our extensive range of listings. Enjoy a seamless and secure buying experience.</p>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-car fa-3x mb-3"></i>
+                    <h4>Wide Selection</h4>
+                    <p>Choose from a vast array of cars from various brands and models.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-shield-alt fa-3x mb-3"></i>
+                    <h4>Secure Transactions</h4>
+                    <p>We ensure secure and transparent transactions for all users.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-thumbs-up fa-3x mb-3"></i>
+                    <h4>Customer Satisfaction</h4>
+                    <p>Your satisfaction is our top priority. Experience top-notch customer service.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

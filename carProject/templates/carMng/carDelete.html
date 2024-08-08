@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block sidenav %}
+     <li>
+       <a href="/"> Home </a>
+     </li>
+{% endblock sidenav %}
+
+{% block content %}
+    <script>
+    setTimeout(function() {
+        window.location.href = "{% url 'myCars' %}";
+    }, 3000);
+    </script>
+    <div class="container">
+        <h1>Car Deleted</h1>
+        <p>The car has been successfully deleted. You will be redirected to the car listings shortly.</p>
+        <p>If you are not redirected, <a href="{% url 'myCars' %}">click here</a>.</p>
+    </div>
+{% endblock content %}

@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+/* Applying font-family */
+body {
+    font-family: 'Lora', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Header styles */
+.header img.logo {
+    height: 50px;
+    max-width: 100%;
+}
+
+/* Main section styling */
+#main {
+    margin-left: 20px;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+/* Footer styling */
+#footer {
+    text-align: center;
+    font-size: 0.8em;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    background-color: #FFFFFF;
+    border-top: thin solid #BBBBBB;
+    color: #969696;
+}
+
+/* Image styling */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ensure full-width banner without white space */
+.banner-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    object-fit: cover;
+}
+
+#textcol {
+    color: #FFFFFF;
+}
+
+/* Icon styling */
+.fas {
+    color: #000000;
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #007BFF;
+    border-color: #007BFF;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #565e64;
+    border-color: #565e64;
+}
+
+/* Additional utility classes */
+.text-muted {
+    color: #969696;
+}
+
+.mt-4 {
+    margin-top: 1.5rem !important;
+}
+
+.my-4 {
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+/* Navbar adjustments */
+.navbar-brand img {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.navbar .nav-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+}
+
+.navbar .form-inline {
+    display: inline-block;
+}
+
+/* Adjust logo and nav-item alignment */
+.navbar-brand,
+.navbar-nav {
+    align-items: center;
+}

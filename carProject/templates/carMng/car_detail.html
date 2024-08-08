@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% block sidenav %}
+   {% for item in item_list %}
+     <li>
+       <a href="{{ item.link }}"> {{ item.item }} </a>
+     </li>
+   {% endfor %}
+{% endblock sidenav %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card mb-4 shadow-sm">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img src="{% static car.pic_path %}" class="card-img bot" alt="{{ car.make }}">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h1 class="card-title">{{ car.model }} {{ car.make }} {{ car.year }}</h1>
+                    <p class="card-text text-muted">Published By: {{ car.username }}</p>
+                    <p class="card-text text-muted">Published On: {{ car.publishdate }}</p>
+                    <h2 class="card-text text-primary">Price: ${{ car.price }}</h2>
+                    <hr>
+                    <h4>Key Specs:</h4>
+                    <ul class="list-unstyled">
+                        <li><strong>Milage:</strong> {{ car.mileage }} miles</li>
+                        <li><strong>Drivetrain:</strong> {{ car.drivetrain }}</li>
+                        <li><strong>Engine:</strong> {{ car.engine }}</li>
+                        <li><strong>Transmission:</strong> {{ car.transmission }}</li>
+                    </ul>
+                    <hr>
+                    <p class="card-text">{{ car.description }}</p>
+                    <a href="{% url 'displayCars' %}" class="btn btn-primary">Back to Listings</a>
+                    <a href="#" class="btn btn-secondary">Contact For Inquiry</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

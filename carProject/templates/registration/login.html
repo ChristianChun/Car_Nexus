@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+{% block sidenav %}
+{% endblock sidenav %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="mt-4">User Login Page</h1>
+            <form action="{% url 'login' %}" method="post">
+                <table class="table">
+                    {{ form.as_table }}
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Login" class="btn btn-primary">
+                        </td>
+                    </tr>
+                </table>
+                <p>
+                    To register <a href="{% url 'register' %}" class="btn btn-link">Click Here</a>
+                </p>
+                <input type="hidden" name="next" value="{{ next }}">
+                {% csrf_token %}
+            </form>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'login.jpg' %}" alt="Login Image" class="img-fluid">
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <h2 class="text-center">Why Login?</h2>
+            <p class="text-center">Enjoy personalized features, secure transactions, and much more!</p>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-user fa-3x mb-3"></i>
+                    <h4>Personalized Experience</h4>
+                    <p>Access tailored content and recommendations just for you.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-lock fa-3x mb-3"></i>
+                    <h4>Secure Transactions</h4>
+                    <p>Ensure your data and transactions are protected with top security.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <i class="fas fa-cogs fa-3x mb-3"></i>
+                    <h4>Exclusive Features</h4>
+                    <p>Unlock special features and tools available only to logged-in users.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
