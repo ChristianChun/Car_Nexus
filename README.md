@@ -9,54 +9,45 @@ Search and Filters: Advanced search functionality with dynamic filters.
 User Accounts: User registration, login, and profile management.
 Admin Panel: Manage car inventory, orders, and users.
 Additional Features: Blog, newsletter subscription, chat support, and SEO optimization.
+
 Installation
 To get started with the Car_Nexus project, follow these steps:
 
 Clone the Repository:
-
-bash
-Copy code
 git clone https://github.com/yourusername/Car_Nexus.git
+
+
 Navigate to the Project Directory:
-
-bash
-Copy code
 cd Car_Nexus
+
+
 Set Up a Virtual Environment:
-
-bash
-Copy code
 python -m venv env
+
+
 Activate the Virtual Environment:
-
 On Windows:
-bash
-Copy code
 .\env\Scripts\activate
+
 On macOS/Linux:
-bash
-Copy code
 source env/bin/activate
+
+
 Install Dependencies:
-
-bash
-Copy code
 pip install -r requirements.txt
+
+
 Apply Migrations:
-
-bash
-Copy code
 python manage.py migrate
+
 Create a Superuser (for accessing the admin panel):
-
-bash
-Copy code
 python manage.py createsuperuser
-Run the Development Server:
 
-bash
-Copy code
+
+Run the Development Server:
 python manage.py runserver
+
+
 Access the Application:
 Open your web browser and go to http://127.0.0.1:8000 to view the website.
 
